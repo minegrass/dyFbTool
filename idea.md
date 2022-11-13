@@ -8,3 +8,7 @@ details idea :
 2.) app goto douyin website and download the video down.. -> using F12 media function
 3.) post to my FB with description same as the DY video -> or able to customize..
 -> the description is only h1 element in the webpage.
+
+14/11/2022 ->
+-> finished input link -> auto post at fb
+-> make express server + discord api tmr
