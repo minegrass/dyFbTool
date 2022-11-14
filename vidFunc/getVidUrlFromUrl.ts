@@ -10,7 +10,10 @@ import { config } from "dotenv";
 import chrome from "selenium-webdriver/chrome";
 
 config();
-
+/**
+ * get video media link from DY url -> using webscrape
+ *
+ */
 export const getVidUrlFromUrl = async (url: string) => {
   let driver = await new Builder()
     .forBrowser("chrome")
@@ -37,9 +40,12 @@ export const getVidUrlFromUrl = async (url: string) => {
         '//*[@id="root"]/div/div[2]/div/div/div[1]/div[2]/div/xg-video-container/video/source'
       )
     );
+    const desc = await driver.findElement(By.css("h1"));
+    const descText = await desc.getText();
+    // console.log(descText);
     const srcUrl = await video.getAttribute("src");
-    console.log("found it");
-    return srcUrl.toString();
+    // console.log(srcUrl);
+    return { link: srcUrl, desc: descText };
   } catch (e) {
     if (e) {
       console.error(e);

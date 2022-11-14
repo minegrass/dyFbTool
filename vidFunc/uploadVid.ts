@@ -1,11 +1,17 @@
 import axios from "axios";
 require("dotenv").config();
 const { PAGE_ID, PAGE_TOKEN } = process.env;
-export const uploadVid = async (videoUrl: string, description: string) => {
+
+/**
+ *  upload video to facebook page reels
+ *
+ */
+export const uploadVid = async (
+  videoId: string,
+  videoUrl: string,
+  description: string
+) => {
   try {
-    const uploadStartUri = `https://graph.facebook.com/v13.0/${PAGE_ID}/video_reels?upload_phase=start&access_token=${PAGE_TOKEN}`;
-    const initiateUploadResponse = await axios.post(uploadStartUri);
-    const videoId = initiateUploadResponse.data.video_id;
     const uploadBinaryUri = `https://rupload.facebook.com/video-upload/v13.0/${videoId}`;
     const uploadBinaryResponse = await axios({
       method: "post",
@@ -21,10 +27,18 @@ export const uploadVid = async (videoUrl: string, description: string) => {
     if (isUploadSuccessful) {
       //   console.log("good");
       const PublishReelsURI = `https://graph.facebook.com/v13.0/${PAGE_ID}/video_reels?upload_phase=finish&video_id=${videoId}&title=${""}&description=${description}&access_token=${PAGE_TOKEN}&video_state=PUBLISHED`;
+
       const publishResponse = await axios.post(PublishReelsURI);
       const hasInitiatedPublishing = publishResponse.data.success;
+
       if (hasInitiatedPublishing) {
-        return true;
+        const statusUri = `https://graph.facebook.com/v13.0/${videoId}/?fields=status&access_token=${PAGE_TOKEN}`;
+        const checkVidStatus = async () => {
+          const statusResponse = await axios.get(statusUri);
+          console.log(statusResponse.data.status.video_status);
+          return statusResponse;
+        };
+        return { status: true, checkVidStatus: checkVidStatus };
       }
     }
   } catch (e) {
