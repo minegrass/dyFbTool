@@ -4,8 +4,8 @@ a node js tool can get video from dy share and post to fb page
 
 Douyin to FB reels ->
 idea :
-1.) i copy a link for douyin video
-2.) app auto download the video and post in my fb page
+1.) i copy a link for a douyin video
+2.) app auto download the video and post to my fb page
 
 details idea :
 1.) maybe use discord/tlg as frontend -> so i can access on phone / pc
@@ -18,7 +18,6 @@ details idea :
 -> make express server + discord api tmr
 -> need to get description from scraping
 
-add these linux command to dockerfile
-sudo apt-get update
-sudo apt-get install ./google-chrome-stable_current_amd64.deb -y
-then npm start will be ok!
+16/11/2022-> project done and able to run in docker 
+-> learned need develop in linux env/ docker env
+-> learned some linux basic command and more about docker
