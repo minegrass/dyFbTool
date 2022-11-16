@@ -20,5 +20,5 @@ details idea :
 
 add these linux command to dockerfile
 sudo apt-get update
-sudo apt-get install packagename ./google-chrome-stable_current_amd64.deb
+sudo apt-get install ./google-chrome-stable_current_amd64.deb -y
 then npm start will be ok!
