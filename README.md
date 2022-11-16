@@ -17,3 +17,8 @@ details idea :
 -> finished input link -> auto post at fb
 -> make express server + discord api tmr
 -> need to get description from scraping
+
+add these linux command to dockerfile
+sudo apt-get update
+sudo apt-get install packagename ./google-chrome-stable_current_amd64.deb
+then npm start will be ok!

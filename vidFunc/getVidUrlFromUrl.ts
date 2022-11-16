@@ -15,14 +15,15 @@ config();
  *
  */
 export const getVidUrlFromUrl = async (url: string) => {
-  let driver = await new Builder()
-    .forBrowser("chrome")
-    .setChromeOptions(
-      new chrome.Options()
-        .headless()
-        .addArguments(`user-agent=${process.env.MY_UA}}`)
-    )
-    .build();
+
+  let options = new chrome.Options()
+      .headless()
+      .addArguments(`user-agent=${process.env.MY_UA}}`).addArguments("no-sandbox").addArguments("disable-gpu").addArguments("disable-dev-shm-usage")
+
+  let service = new chrome.ServiceBuilder("./chromedriver").build()
+
+  let driver = chrome.Driver.createSession(options,service)
+    
   try {
     await driver.get(url);
     await driver.wait(
