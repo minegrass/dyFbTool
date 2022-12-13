@@ -1,6 +1,10 @@
 # dyFbTool  
   
 a node js tool can get video from dy share and post to fb page  
+package:  
+-selenium  
+-discord API  
+-Facebook API  
   
 Douyin to FB reels ->  
 idea :  
