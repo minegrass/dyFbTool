@@ -4,6 +4,7 @@ services:
       - sleep
       - infinity
     image: docker/dev-environments-javascript:stable-1
+    command: npm run build
     init: true
     volumes:
       - type: bind
