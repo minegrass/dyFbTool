@@ -1,0 +1,14 @@
+services:
+  app:
+    entrypoint:
+      - sleep
+      - infinity
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: npm run build
+    init: true
+    volumes:
+      - type: bind
+        source: /var/run/docker.sock
+        target: /var/run/docker.sock
