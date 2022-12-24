@@ -26,12 +26,12 @@ details idea :
 -> learned need develop in linux env/ docker env  
 -> learned some linux basic command and more about docker  
 
-12/24/2022
-
--> added /postvid function -> to upload as video
-
-===============================
-showcase:
+12/24/2022  
+  
+-> added /postvid function -> to upload as video  
+  
+===============================  
+showcase:  
 ![image](https://user-images.githubusercontent.com/25462796/209433033-564d706b-e365-4965-8770-d5e7473bf1cc.png)
 ![image](https://user-images.githubusercontent.com/25462796/209433065-429ce409-551b-4df6-a07a-eebfa9933d26.png)
 
