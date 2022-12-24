@@ -18,6 +18,7 @@ import e from "express";
 import { postVid } from "../vidFunc/postVid";
 import { getVidId } from "../vidFunc/getVidId";
 import axios from "axios";
+import { postLongVid } from "../vidFunc/postLongVid";
 require("dotenv").config();
 
 const { BOT_TOKEN, KING_ID, GUILD_ID, BOT_CLIENT_ID, PAGE_TOKEN } = process.env;
@@ -66,6 +67,21 @@ client.on(Events.InteractionCreate, async (interaction) => {
         components: [checkBtn],
       });
     }
+  }else if(interaction.commandName === "postvid"){
+    const link = interaction.options.getString("link", true);
+    await interaction.reply({ content: "Processing", ephemeral: true });
+    try{
+    const status = await postLongVid(link)
+    if(status.status){
+      await interaction.followUp({content:"Upload Success ! ID: "+status.id})
+
+    }else{
+      await interaction.followUp({content:"Failed to upload Error: "+ status.error} )
+    }
+  }catch(e){
+    await interaction.followUp({content:"unknown error: "+ e})
+    console.error(e)
+  }
   }
 });
 

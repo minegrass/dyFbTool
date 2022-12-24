@@ -25,3 +25,7 @@ details idea :
 16/11/2022-> project done and able to run in docker  
 -> learned need develop in linux env/ docker env  
 -> learned some linux basic command and more about docker  
+
+12/24/2022
+
+-> added /postvid function -> to upload as video
